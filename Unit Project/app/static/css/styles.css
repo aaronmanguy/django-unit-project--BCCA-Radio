@@ -1,0 +1,220 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  background-color: rgb(20, 20, 20);
+}
+
+.head {
+  background-color: black;
+}
+
+.title-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  font-size: 300%;
+  margin-top: 2%;
+  margin-left: 1%;
+  color: rgba(129, 211, 239, 255);
+  font-family: Helvetica;
+}
+
+.playlist {
+  display: flex;
+  border-radius: 12px;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 2%;
+}
+
+.image {
+  margin-top: 1%;
+  height: 5%;
+  width: 5%;
+}
+
+.img-btn {
+  margin-top: 1%;
+  height: 5%;
+  width: 5%;
+}
+
+.image-button {
+  width: 100%;
+}
+
+.hold {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 2%;
+  background-color: rgb(20, 20, 20);
+}
+
+.search-group {
+  display: flex;
+  justify-content: center;
+  box-shadow: 5px 5px 5px 5px black;
+}
+
+.search-input {
+  color: white;
+  margin-bottom: 1%;
+  background-color: rgb(68, 68, 68);
+  width: 15%;
+  font-size: 100%;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-family: Helvetica;
+}
+
+.playlist-wrapper {
+  margin-bottom: 20%;
+  text-align: center;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(29, 213, 95, 255);
+}
+.playlist-wrapper:hover {
+  transition: all 0.2s linear;
+  box-shadow: 2px 2px 2px 2px rgba(29, 213, 95, 255);
+}
+
+.link {
+  color: rgba(129, 211, 239, 255);
+  text-decoration: none;
+  font-size: 120%;
+  padding-top: 2%;
+  font-family: Helvetica;
+}
+.link:hover {
+  transition: all 0.2s linear;
+  color: rgba(29, 213, 95, 255);
+}
+.label {
+  color: white;
+  padding-bottom: 2%;
+  font-family: Helvetica;
+}
+.name {
+  color: rgba(129, 211, 239, 255);
+  font-family: Helvetica;
+}
+.list-head {
+  color: rgba(29, 213, 95, 255);
+  width: 30%;
+  margin-left: 2%;
+  font-family: Helvetica;
+}
+.all-playlists {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 15%);
+  justify-content: space-evenly;
+}
+.home-desc {
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+}
+.student-desc {
+  margin-left: 2%;
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+}
+.headshot-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-photo {
+  width: 20%;
+  border-radius: 50%;
+}
+.surprise {
+  color: white;
+  text-decoration: none;
+}
+.surprise:hover {
+  transition: all 0.2s linear;
+  color: rgba(29, 213, 95, 255);
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 91, 91);
+}
+.surprise-2 {
+  color: white;
+  text-decoration: none;
+}
+.surprise-2:hover {
+  transition: all 0.2s linear;
+  text-decoration: underline;
+  text-decoration-color: rgb(152, 159, 255);
+}
+.surprise-3 {
+  color: white;
+  text-decoration: none;
+}
+.surprise-3:hover {
+  transition: all 0.2s linear;
+  text-decoration: underline;
+  text-decoration-color: rgb(163, 83, 83);
+}
+.egg-carton {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+.egg-1 {
+  display: none;
+}
+.egg-1_show {
+  display: block;
+  border-radius: 50%;
+}
+.egg-2 {
+  display: none;
+}
+.egg-2_show {
+  display: block;
+  border-radius: 50%;
+}
+.egg-3 {
+  display: none;
+}
+.egg-3_show {
+  display: block;
+  border-radius: 50%;
+}
+.egg-1_show:hover {
+  transition: all 0.2s linear;
+  background-color: rgb(255, 243, 18);
+}
+.egg-2_show:hover {
+  transition: all 0.2s linear;
+  background-color: rgb(255, 243, 18);
+}
+.egg-3_show:hover {
+  transition: all 0.2s linear;
+  background-color: rgb(255, 243, 18);
+}
+.normies {
+  top: auto;
+  bottom: 2%;
+  left: 47%;
+  right: auto;
+  position: fixed;
+  color: white;
+  text-decoration-color: red;
+  font-family: Helvetica;
+}
+.normies:hover {
+  transition: all 0.2s linear;
+  color: red;
+}

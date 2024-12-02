@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCCA Radio</title>
+    <link rel="icon" type="icon" href="{% static "images/base_camp_logo.jpg" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+    <script src="{% static "js/static.js" %}" defer></script>
+  </head>
+  <body class="body">
+    <div class="head">
+        <div class="title-logo">
+        {%if playlists%}
+        <img class="image" src="{% static "images/base_camp_logo.jpg" %}"/>
+        {%elif playlist%}
+        <a class="img-btn" href="{% url "home" %}">
+            <img class="image-button" src="{% static "images/base_camp_logo.jpg" %}" />
+        </a>
+        {%endif%}
+        <h1 class="header">Base Camp Radio</h1>
+        <div class="egg-carton">
+          <img id="egg-1" class="egg-1" src="{% static "images/Egg_item.png" %}" /><br>
+          <img id="egg-2" class="egg-2" src="{% static "images/Egg_item.png" %}" /><br>
+          <img id="egg-3" class="egg-3" src="{% static "images/Egg_item.png" %}" />
+        </div>
+      </div>
+        <form class="search-group" method="POST" action="{%url 'search' %}">
+          {% csrf_token %}
+          <input class="search-input"
+              placeholder="Name or Genre"
+              type="text"
+              name="searched"
+          />
+        </form>
+    </div>
+    <div class="hold">
+      {% if playlists %}
+      <h3 class="home-desc">Base Camp Coding Academy is a non-profit program that offers challenging, <a class="surprise" target="_blank" href="https://www.youtube.com/watch?v=yXQViqx6GMY" onclick="show_egg_1()">fun</a>, hands-on software development training to nominated Mississippi students. During their time here they like to listen to music while working. This is a collection of the students of 2025 prefered music.</h3><br/>
+      <h2 class="list-head">All Playlists</h2><br/>
+      <br/>
+      <div class="all-playlists">
+        {%for playlist in playlists%}
+        <div class="playlist-wrapper">
+          <a class="link" href="/{{playlist}}">{{playlist}}</a>
+          <p class="label">{{playlist.genre}}</p>
+        </div>
+        {%endfor%}
+      </div>
+      <a class="normies" target="_blank" href="https://www.iheart.com/live/country/US/city/tupelo-ms-607/">For Normies</a>
+      {%elif playlist %}
+      <h2 class="name">{{playlist.name}} <span style="color: white">-</span> <span style="color: rgba(29, 213, 95, 255)">{{playlist.genre}}</span></h2><br/>
+      <div class="headshot-group">
+        {%if playlist.name == "Aaron Tapley"%}
+        <img class="student-photo" src="{% static "images/aaron-photo.jpg" %}" />
+        {%elif playlist.name == "Jason Woodruff"%}
+        <img class="student-photo" src="{% static "images/jason-photo.jpg" %}" />
+        {%elif playlist.name == "Jacob Allen"%}
+        <img class="student-photo" src="{% static "images/jacob-photo.png" %}" />
+        {%elif playlist.name == "Chris Skeen"%}
+        <img class="student-photo" src="{% static "images/chris-photo.png" %}" />
+        {%elif playlist.name == "Arthur Fielder"%}
+        <img class="student-photo" src="{% static "images/arthur-photo.png" %}" />
+        {%elif playlist.name == "Kilan Miller"%}
+        <img class="student-photo" src="{% static "images/kilan-photo.png" %}" />
+        {%elif playlist.name == "Arianna Kennedy"%}
+        <img class="student-photo" src="{% static "images/arianna-photo.png" %}" />
+        {%endif%}
+        <h3 class="student-desc">{{playlist.desc}}</h3>
+      </div>
+      <br/><br/><br/>
+      {%if playlist.name == "Aaron Tapley"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/5d7UBKIrQOoBOIEXS0FJOA?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Jason Woodruff"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/25mlXBIVg1FmWybwURJZ8e?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Arthur Fielder"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/6lcTvxbcjAVzM28QV0HY95?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Kilan Miller"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/48xT68nkngDDBty4PJvrX8?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Chris Skeen"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/1sK3dGZ2DsVDeMgl1qxj67?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Jacob Allen"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/6jjQXDNAfNfa0bXor5N5uf?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%elif playlist.name == "Arianna Kennedy"%}
+      <iframe class="playlist" src="https://open.spotify.com/embed/playlist/4m23u5rKA8B1ys3wlkHntW?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      {%endif%}{% endif %}
+  </div>
+  </body>
+</html>

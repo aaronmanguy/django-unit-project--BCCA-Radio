@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCCA Radio</title>
+    <link rel="icon" type="icon" href="{% static "images/base_camp_logo.jpg" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+    <script src="{% static "js/static.js" %}" defer></script>
+  </head>
+  <body class="body">
+    <div class="head">
+      <div class="title-logo">
+        <a class="img-btn" href="{% url "home" %}">
+            <img class="image-button" src="{% static "images/base_camp_logo.jpg" %}" />
+        </a>
+        <h1 class="header">Base Camp Radio</h1>
+        <div class="egg-carton">
+          <img id="egg-1" class="egg-1" src="{% static "images/Egg_item.png" %}" /><br>
+          <img id="egg-2" class="egg-2" src="{% static "images/Egg_item.png" %}" /><br>
+          <img id="egg-3" class="egg-3" src="{% static "images/Egg_item.png" %}" />
+        </div>
+      </div>
+        <form class="search-group" method="POST" action="{%url 'search' %}">
+          {% csrf_token %}
+          <input class="search-input"
+              placeholder="Name or Genre"
+              type="text"
+              name="searched"
+          />
+        </form>
+  </div>
+    <div class="hold">
+      {%if searched%}
+      {%if searched == "Jason Woodruff"%}
+      <h2 class="list-head">Results for: <span><a class="surprise-2" target="_blank" href="https://www.youtube.com/watch?v=L_jWHffIx5E" onclick="show_egg_2()">{{searched}}</a></span></h2><br/>
+      <br />
+      {%elif searched == "Jacob Allen"%}
+      <h2 class="list-head">Results for: <span><a class="surprise-3" target="_blank" href="https://www.youtube.com/watch?v=BB0DU4DoPP4" onclick="show_egg_3()">{{searched}}</a></span></h2><br/>
+      <br />
+      {%else%}
+      <h2 class="list-head">Results for: <span style="color: white">{{searched}}</span></h2><br/>
+      <br />
+      {%endif%}
+      <div class="all-playlists">
+      {%for name in name_search%}
+      <div class="playlist-wrapper">
+        <a class="link" href="/{{name}}">{{name}}</a>
+        <p class="label">{{name.genre}}</p>
+      </div>
+      {%endfor%} {%for genre in genre_search%}
+      <div class="playlist-wrapper">
+        <a class="link" href="/{{genre}}">{{genre}}</a>
+        <p class="label">{{genre.genre}}</p>
+      </div>
+      {%endfor%}
+    </div>
+    {%endif%}
+    </div>
+  </body>
+</html>
