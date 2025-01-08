@@ -7,8 +7,8 @@ def main(request, name:str=None):
     playlists = Playlist.objects.all()
     if name:
         playlist = Playlist.objects.get(name=name)
-        return render(request, "main.html", {'playlist': playlist})
-    return render(request, 'main.html', {"playlists": playlists})
+        return render(request, "index.html", {'playlist': playlist})
+    return render(request, 'index.html', {"playlists": playlists})
 
 def search(request):
     if request.method == "POST":
